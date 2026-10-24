@@ -1,0 +1,36 @@
+# AutoVerse Robots Directives
+User-agent: *
+Allow: /
+Allow: /cars/
+Allow: /manufacturers/
+Allow: /launches/
+Allow: /cinema
+Allow: /compare
+Allow: /car-finder
+Allow: /configurator
+Allow: /dealers
+Allow: /offers
+Allow: /financing
+Allow: /used-cars
+Allow: /safety
+Allow: /recalls
+Allow: /charging
+Allow: /market-intelligence
+Allow: /news
+Allow: /reviews
+Allow: /community
+Allow: /trip-planner
+Allow: /assistant
+
+# Privacy & Security: Disallow administrative and user-private consoles
+Disallow: /admin
+Disallow: /admin/
+Disallow: /my-
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /garage
+Disallow: /login
+Disallow: /register
+Disallow: /reset-password
+
+Sitemap: https://autoverse.com/sitemap.xml

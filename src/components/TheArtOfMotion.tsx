@@ -86,19 +86,19 @@ const MOTION_SCENES: SceneData[] = [
   {
     id: 4,
     chapter: 'ACT IV // 04',
-    title: 'The Open Alpine Asphalt',
-    subtitle: 'Alpine Switchbacks at 2,504m Elevation',
+    title: 'The Open Alpine Skyway',
+    subtitle: 'Open-Top Grand Tour at 2,504m Elevation',
     description:
-      'Chasing dawn across 36 tight switchbacks on the Grossglockner High Alpine Pass. Dual-motor all-wheel drive vectors 1,110 Nm of torque across both axles with millisecond precision.',
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=85',
+      'An open-top convertible ascent under rolling cinematic clouds and crisp cool mountain air. Distant snow-capped peaks and winding valleys remain crystal clear miles into the horizon as passengers and children embrace the panoramic sky.',
+    image: '/images/cinema-open-top-clouds.jpg',
     accentColor: '#10b981',
     telemetry: [
-      { label: 'Lateral G', value: '1.42', unit: 'G' },
-      { label: 'Vector Response', value: '2.0', unit: 'ms' },
+      { label: 'Panoramic View', value: '360°', unit: 'Sky' },
+      { label: 'Ambient Climate', value: 'Crisp', unit: 'Cool' },
       { label: 'Elevation', value: '2,504', unit: 'm' },
     ],
-    engineeringNotes: 'Porsche Torque Vectoring Plus (PTV Plus) with electronically controlled rear lock.',
-    audioSignature: 'Michelin Pilot Sport Cup 2 Tire Micro-Slip at 1.42G Lateral',
+    engineeringNotes: 'Open-air acoustic aerodynamics with retractable soft-top and electro-hydraulic chassis stabilization.',
+    audioSignature: 'Open-Air Alpine Breeze & Dual-Motor Acoustic Resonance',
   },
   {
     id: 5,

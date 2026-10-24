@@ -212,8 +212,8 @@ export const RoadCinemaPage: React.FC = () => {
           {!heroVideoFailed && (
             <video
               ref={heroVideoRef}
-              src="/videos/cinema-reel.mp4"
-              poster="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1920&q=85"
+              src="/videos/araku-hill-climb.mp4"
+              poster="/images/cinema-open-top-clouds.jpg"
               autoPlay
               muted
               loop
@@ -223,7 +223,7 @@ export const RoadCinemaPage: React.FC = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                filter: 'brightness(0.45) contrast(1.15)',
+                filter: 'brightness(0.70) contrast(1.08)',
                 transform: 'scale(1.02)',
               }}
             />
@@ -231,13 +231,13 @@ export const RoadCinemaPage: React.FC = () => {
 
           {heroVideoFailed && (
             <img
-              src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1920&q=85"
-              alt="Road Cinema Cinematic Hero"
+              src="/images/cinema-open-top-clouds.jpg"
+              alt="AutoVerse Open-Top Alpine Drive with Real Clouds and Far Visibility"
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                filter: 'brightness(0.45) contrast(1.15)',
+                filter: 'brightness(0.70) contrast(1.08)',
               }}
             />
           )}
