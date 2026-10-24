@@ -28,6 +28,7 @@ import {
   ShoppingBag,
   Tag,
   Landmark,
+  BarChart3,
 } from 'lucide-react';
 import { getCurrentAdmin, logoutUser } from '../../utils/auth';
 
@@ -43,6 +44,7 @@ export const AdminLayout: React.FC = () => {
 
   const navItems = [
     { to: '/admin', label: 'Overview', icon: LayoutDashboard, end: true },
+    { to: '/admin/analytics', label: 'Analytics & Reports', icon: BarChart3 },
     { to: '/admin/offers', label: 'Dealer Offers', icon: Tag },
     { to: '/admin/finance-settings', label: 'Finance Settings', icon: Landmark },
     { to: '/admin/marketplace', label: 'Used Car Moderation', icon: ShoppingBag },

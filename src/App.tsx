@@ -7,6 +7,9 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { CinematicIntro } from './components/CinematicIntro';
 import { FloatingAssistantWidget } from './components/FloatingAssistantWidget';
+import { OfflineBanner } from './components/pwa/OfflineBanner';
+import { PWAInstallBanner } from './components/pwa/PWAInstallBanner';
+import { PWAUpdateNotification } from './components/pwa/PWAUpdateNotification';
 
 // Eagerly loaded public showcase foundations (Instant FCP)
 import { HomePage } from './pages/HomePage';
@@ -119,6 +122,13 @@ const MyFinancingPage = lazy(() => import('./pages/MyFinancingPage').then((m) =>
 const AdminOffersPage = lazy(() => import('./pages/admin/AdminOffersPage').then((m) => ({ default: m.AdminOffersPage })));
 const AdminFinanceSettingsPage = lazy(() => import('./pages/admin/AdminFinanceSettingsPage').then((m) => ({ default: m.AdminFinanceSettingsPage })));
 
+// Performance Code-Splitting: Lazy load Stage 24 Automotive Analytics & Reporting Modules
+const AdminAnalyticsOverviewPage = lazy(() => import('./pages/admin/analytics/AdminAnalyticsOverviewPage').then((m) => ({ default: m.AdminAnalyticsOverviewPage })));
+const AdminAnalyticsVehiclesPage = lazy(() => import('./pages/admin/analytics/AdminAnalyticsVehiclesPage').then((m) => ({ default: m.AdminAnalyticsVehiclesPage })));
+const AdminAnalyticsMarketplacePage = lazy(() => import('./pages/admin/analytics/AdminAnalyticsMarketplacePage').then((m) => ({ default: m.AdminAnalyticsMarketplacePage })));
+const AdminAnalyticsDealersPage = lazy(() => import('./pages/admin/analytics/AdminAnalyticsDealersPage').then((m) => ({ default: m.AdminAnalyticsDealersPage })));
+const AdminAnalyticsOffersPage = lazy(() => import('./pages/admin/analytics/AdminAnalyticsOffersPage').then((m) => ({ default: m.AdminAnalyticsOffersPage })));
+
 // Scroll to top helper on route transition
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -202,6 +212,8 @@ const AppContent: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <OfflineBanner />
+      <PWAUpdateNotification />
       {/* Experience 1: Dramatic Car Intro (Homepage only) */}
       {location.pathname === '/' && <CinematicIntro />}
 
@@ -351,6 +363,13 @@ const AppContent: React.FC = () => {
               }
             >
               <Route index element={<AdminDashboardPage />} />
+              {/* Stage 24 Automotive Analytics & Reporting Routes */}
+              <Route path="analytics" element={<AdminAnalyticsOverviewPage />} />
+              <Route path="analytics/vehicles" element={<AdminAnalyticsVehiclesPage />} />
+              <Route path="analytics/marketplace" element={<AdminAnalyticsMarketplacePage />} />
+              <Route path="analytics/dealers" element={<AdminAnalyticsDealersPage />} />
+              <Route path="analytics/offers" element={<AdminAnalyticsOffersPage />} />
+
               <Route path="offers" element={<AdminOffersPage />} />
               <Route path="finance-settings" element={<AdminFinanceSettingsPage />} />
               <Route path="marketplace" element={<AdminMarketplacePage />} />
@@ -386,6 +405,7 @@ const AppContent: React.FC = () => {
         </Suspense>
       </div>
 
+      {!isAdminRoute && <PWAInstallBanner />}
       {!isAdminRoute && <FloatingAssistantWidget />}
       {!isAdminRoute && <Footer />}
     </div>

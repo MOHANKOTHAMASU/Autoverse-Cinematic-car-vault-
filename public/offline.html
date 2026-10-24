@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoVerse — Offline Mode</title>
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <style>
+      :root {
+        --bg: #05070a;
+        --card-bg: rgba(15, 23, 42, 0.85);
+        --border: rgba(255, 255, 255, 0.1);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --cyan: #00f0ff;
+        --blue: #3b82f6;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background-image: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15), transparent 70%);
+      }
+      .offline-card {
+        max-width: 540px;
+        width: 100%;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      }
+      .crest {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #f87171;
+      }
+      h1 {
+        font-size: 1.85rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+      }
+      p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .capabilities {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        text-align: left;
+        margin-bottom: 2rem;
+        font-size: 0.85rem;
+      }
+      .capabilities h3 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #38bdf8;
+        margin-bottom: 0.5rem;
+      }
+      .capabilities ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .capabilities li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #cbd5e1;
+      }
+      .actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      button, a.btn {
+        padding: 0.8rem 1.5rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: #ffffff;
+        border: none;
+      }
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: #94a3b8;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+      }
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="offline-card">
+      <div class="status-pill">
+        <span>●</span> Offline Mode
+      </div>
+
+      <div class="crest">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+          <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+        </svg>
+      </div>
+
+      <h1>Connection Unavailable</h1>
+      <p>
+        AutoVerse is currently operating without an active internet connection. You can continue reading cached vehicle specs, but live transactions require connectivity.
+      </p>
+
+      <div class="capabilities">
+        <h3>Operational Boundaries</h3>
+        <ul>
+          <li>✓ Cached vehicle catalog & offline documentation viewable</li>
+          <li>✕ Live test-drive booking requires active network connection</li>
+          <li>✕ Real-time marketplace enquiries and offers are disabled</li>
+          <li>✕ User authentication & cloud profile synchronization paused</li>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <button id="retry-btn" class="btn-primary" onclick="retryConnection()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/></svg>
+          Check Connection
+        </button>
+        <a href="/" class="btn-secondary">
+          Return to Fleet
+        </a>
+      </div>
+    </div>
+
+    <script>
+      function retryConnection() {
+        const btn = document.getElementById('retry-btn');
+        btn.innerText = 'Checking...';
+        btn.disabled = true;
+
+        fetch('/', { method: 'HEAD', cache: 'no-store' })
+          .then(() => {
+            window.location.reload();
+          })
+          .catch(() => {
+            setTimeout(() => {
+              btn.innerText = 'Still Offline — Retry';
+              btn.disabled = false;
+            }, 600);
+          });
+      }
+
+      window.addEventListener('online', () => {
+        window.location.reload();
+      });
+    </script>
+  </body>
+</html>
