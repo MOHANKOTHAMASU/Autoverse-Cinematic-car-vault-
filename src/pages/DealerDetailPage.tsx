@@ -21,6 +21,7 @@ import {
   Calendar,
   CheckCircle2,
   ChevronRight,
+  Tag,
 } from 'lucide-react';
 import { getDealerBySlug } from '../utils/dealerStore';
 import { VEHICLES } from '../data/vehicles';
@@ -261,6 +262,23 @@ export const DealerDetailPage: React.FC = () => {
                 style={{ padding: '0.85rem 1.75rem', fontSize: '0.95rem' }}
               >
                 <Clock size={16} /> Book Test Drive
+              </Link>
+
+              <Link
+                to={`/offers?dealer=${dealer.id}`}
+                className="btn btn-secondary"
+                style={{
+                  padding: '0.85rem 1.25rem',
+                  fontSize: '0.95rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  borderColor: 'rgba(59, 130, 246, 0.4)',
+                  color: '#60a5fa',
+                  background: 'rgba(59, 130, 246, 0.08)',
+                }}
+              >
+                <Tag size={16} /> Dealer Offers & Specials
               </Link>
 
               <a

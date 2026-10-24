@@ -32,6 +32,8 @@ import {
   ShoppingBag,
   PlusCircle,
   MessageSquare,
+  Tag,
+  Landmark,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getSavedGarageSlugs } from '../utils/garage';
@@ -112,9 +114,10 @@ export const Navbar: React.FC<NavbarProps> = () => {
       key: 'fleet',
       label: 'Fleet',
       icon: Car,
-      activeCheck: ['/discover', '/compare', '/manufacturers', '/launches', '/cars', '/vehicle', '/dealers', '/used-cars', '/sell-car'],
+      activeCheck: ['/discover', '/compare', '/manufacturers', '/launches', '/cars', '/vehicle', '/dealers', '/used-cars', '/sell-car', '/offers'],
       items: [
         { name: 'Discover Cars', path: '/discover', icon: Car, desc: 'Curated 50 benchmark performance & luxury models' },
+        { name: 'Dealer Offers & Specials', path: '/offers', icon: Tag, desc: 'Verified manufacturer discounts, exchange bonuses & promotions' },
         { name: 'Used Cars Marketplace', path: '/used-cars', icon: ShoppingBag, desc: 'Verified pre-owned vehicles, seller disclosures & direct enquiries' },
         { name: 'Sell Your Car', path: '/sell-car', icon: PlusCircle, desc: 'List your pre-owned vehicle in 4 guided steps' },
         { name: 'Dealer Network', path: '/dealers', icon: Building2, desc: 'Verified OEM showrooms, service hubs & test drives' },
@@ -127,8 +130,9 @@ export const Navbar: React.FC<NavbarProps> = () => {
       key: 'tools',
       label: 'Electric & Tools',
       icon: Zap,
-      activeCheck: ['/trip-planner', '/charging-stations', '/car-finder', '/configurator', '/ownership-calculator', '/calculator'],
+      activeCheck: ['/trip-planner', '/charging-stations', '/car-finder', '/configurator', '/ownership-calculator', '/calculator', '/financing'],
       items: [
+        { name: 'Car Finance & EMI Calculator', path: '/financing', icon: Landmark, desc: 'Reducing-balance EMI, zero-interest loans & scenario comparisons' },
         { name: 'EV Smart Trip Planner', path: '/trip-planner', icon: Navigation, desc: 'Battery SoC simulation & corridor stop routing' },
         { name: 'Charging Stations', path: '/charging-stations', icon: Zap, desc: 'High-power DC fast charger discovery & tariffs' },
         { name: 'Car Finder', path: '/car-finder', icon: Sparkles, desc: 'Algorithm-driven vehicle recommendation engine' },
@@ -758,6 +762,24 @@ export const Navbar: React.FC<NavbarProps> = () => {
                     >
                       <MessageSquare size={15} color="#38bdf8" />
                       <span>My Enquiries</span>
+                    </Link>
+
+                    <Link
+                      to="/my-financing"
+                      onClick={() => setUserMenuOpen(false)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.65rem 0.75rem',
+                        color: 'var(--text-secondary)',
+                        fontSize: '0.85rem',
+                        textDecoration: 'none',
+                        borderRadius: '6px',
+                      }}
+                    >
+                      <Landmark size={15} color="#34d399" />
+                      <span>My Saved Financing</span>
                     </Link>
 
                     <Link

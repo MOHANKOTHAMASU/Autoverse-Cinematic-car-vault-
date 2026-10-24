@@ -32,6 +32,8 @@ import {
   Navigation,
   TrendingUp,
   Clock,
+  Tag,
+  Landmark,
 } from 'lucide-react';
 import { isCarInGarage, toggleCarInGarage, recordRecentlyViewed } from '../utils/garage';
 import { getVehicleCommunitySummary } from '../utils/communityStore';
@@ -638,6 +640,46 @@ export const VehicleDetailPage: React.FC = () => {
               >
                 <Car size={15} color="var(--accent-cyan)" />
                 <span>Find Pre-Owned in Marketplace</span>
+              </Link>
+
+              <Link
+                to={`/offers?vehicle=${vehicle.id}`}
+                className="btn btn-secondary"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.82rem',
+                  padding: '0.65rem 1rem',
+                  borderColor: 'rgba(59, 130, 246, 0.4)',
+                  color: '#60a5fa',
+                  background: 'rgba(59, 130, 246, 0.08)',
+                }}
+                title="Check verified manufacturer and dealer offers"
+              >
+                <Tag size={15} color="#60a5fa" />
+                <span>Check Dealer Offers</span>
+              </Link>
+
+              <Link
+                to={`/financing/${vehicle.slug}`}
+                className="btn btn-secondary"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.82rem',
+                  padding: '0.65rem 1rem',
+                  borderColor: 'rgba(52, 211, 153, 0.4)',
+                  color: '#34d399',
+                  background: 'rgba(16, 185, 129, 0.08)',
+                }}
+                title="Calculate reducing-balance loan repayments and EMI"
+              >
+                <Landmark size={15} color="#34d399" />
+                <span>Calculate Financing & EMI</span>
               </Link>
 
               <Link

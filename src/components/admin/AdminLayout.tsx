@@ -26,6 +26,8 @@ import {
   TrendingUp,
   Clock,
   ShoppingBag,
+  Tag,
+  Landmark,
 } from 'lucide-react';
 import { getCurrentAdmin, logoutUser } from '../../utils/auth';
 
@@ -41,6 +43,8 @@ export const AdminLayout: React.FC = () => {
 
   const navItems = [
     { to: '/admin', label: 'Overview', icon: LayoutDashboard, end: true },
+    { to: '/admin/offers', label: 'Dealer Offers', icon: Tag },
+    { to: '/admin/finance-settings', label: 'Finance Settings', icon: Landmark },
     { to: '/admin/marketplace', label: 'Used Car Moderation', icon: ShoppingBag },
     { to: '/admin/dealers', label: 'Dealer Network', icon: Building2 },
     { to: '/admin/test-drives', label: 'Test-Drive Bookings', icon: Clock },

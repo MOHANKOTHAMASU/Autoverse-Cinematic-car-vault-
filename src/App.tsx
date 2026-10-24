@@ -111,6 +111,14 @@ const SavedListingsPage = lazy(() => import('./pages/SavedListingsPage').then((m
 const MyEnquiriesPage = lazy(() => import('./pages/MyEnquiriesPage').then((m) => ({ default: m.MyEnquiriesPage })));
 const AdminMarketplacePage = lazy(() => import('./pages/admin/AdminMarketplacePage').then((m) => ({ default: m.AdminMarketplacePage })));
 
+// Performance Code-Splitting: Lazy load Stage 22 Dealer Offers & Smart Car Financing Modules
+const OffersPage = lazy(() => import('./pages/OffersPage').then((m) => ({ default: m.OffersPage })));
+const OfferDetailPage = lazy(() => import('./pages/OfferDetailPage').then((m) => ({ default: m.OfferDetailPage })));
+const FinancingCalculatorPage = lazy(() => import('./pages/FinancingCalculatorPage').then((m) => ({ default: m.FinancingCalculatorPage })));
+const MyFinancingPage = lazy(() => import('./pages/MyFinancingPage').then((m) => ({ default: m.MyFinancingPage })));
+const AdminOffersPage = lazy(() => import('./pages/admin/AdminOffersPage').then((m) => ({ default: m.AdminOffersPage })));
+const AdminFinanceSettingsPage = lazy(() => import('./pages/admin/AdminFinanceSettingsPage').then((m) => ({ default: m.AdminFinanceSettingsPage })));
+
 // Scroll to top helper on route transition
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -319,6 +327,20 @@ const AppContent: React.FC = () => {
             <Route path="/saved-listings" element={<SavedListingsPage />} />
             <Route path="/my-enquiries" element={<MyEnquiriesPage />} />
 
+            {/* Stage 22 Dealer Offers & Smart Car Financing Routes */}
+            <Route path="/offers" element={<OffersPage />} />
+            <Route path="/offers/:slug" element={<OfferDetailPage />} />
+            <Route path="/financing" element={<FinancingCalculatorPage />} />
+            <Route path="/financing/:vehicleSlug" element={<FinancingCalculatorPage />} />
+            <Route
+              path="/my-financing"
+              element={
+                <ProtectedRoute>
+                  <MyFinancingPage />
+                </ProtectedRoute>
+              }
+            />
+
             {/* Stage 7 Protected Administration Terminal Routes */}
             <Route
               path="/admin"
@@ -329,6 +351,8 @@ const AppContent: React.FC = () => {
               }
             >
               <Route index element={<AdminDashboardPage />} />
+              <Route path="offers" element={<AdminOffersPage />} />
+              <Route path="finance-settings" element={<AdminFinanceSettingsPage />} />
               <Route path="marketplace" element={<AdminMarketplacePage />} />
               <Route path="dealers" element={<AdminDealersPage />} />
               <Route path="test-drives" element={<AdminTestDrivesPage />} />
