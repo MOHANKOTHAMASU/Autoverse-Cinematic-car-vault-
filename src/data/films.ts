@@ -1,0 +1,48 @@
+import type { RoadFilm } from '../types';
+
+export const ROAD_FILMS: RoadFilm[] = [
+  {
+    id: 'film-alpine-pass',
+    title: 'Grossglockner High Alpine Pass',
+    vehicle: 'Porsche Taycan Turbo S',
+    duration: '04:12',
+    location: 'High Alps, Austria (Elevation 2,504m)',
+    description: 'Carving hairpin turns at dawn. 938 horsepower channeled through dual synchronous motors in freezing mountain air.',
+    thumbnail: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+    directorNote: 'Shot in anamorphic 2.39:1 widescreen format with gyroscopic vehicle stabilization.',
+    aspectRatio: '21:9',
+  },
+  {
+    id: 'film-midnight-metropolis',
+    title: 'Midnight Autobahn Flight',
+    vehicle: 'Audi RS e-tron GT',
+    duration: '03:45',
+    location: 'A8 Autobahn, Stuttgart to Munich',
+    description: 'High-speed acoustic aerodynamic sprint under sodium highway lights. Precision quattro stability at 155 mph.',
+    thumbnail: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1200&q=80',
+    directorNote: 'Ambient cockpit binaural audio capturing the subtle hum of 800V silicon carbide inverters.',
+    aspectRatio: '21:9',
+  },
+  {
+    id: 'film-willow-springs',
+    title: 'Willow Springs Apex Hunt',
+    vehicle: 'BMW M4 Competition Coupé',
+    duration: '05:20',
+    location: 'Big Willow Raceway, California Desert',
+    description: 'Flat-out through Turn 8 and 9. S58 twin-turbo inline-six screaming to redline with M xDrive rear differential rotation.',
+    thumbnail: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80',
+    directorNote: 'High frame-rate 120 FPS high-speed cinematography focused on suspension travel and tire deformation.',
+    aspectRatio: '21:9',
+  },
+  {
+    id: 'film-pacific-coast',
+    title: 'Big Sur Coastal Descent',
+    vehicle: 'Mercedes-AMG GT 63 S E Performance',
+    duration: '04:50',
+    location: 'Highway 1, Pacific Coast Highway, California',
+    description: 'V8 rumble echoing off coastal cliffs before switching seamlessly to pure whisper-silent electric glide through redwood corridors.',
+    thumbnail: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80',
+    directorNote: 'Captured during golden hour utilizing ultra-wide 18mm cinema optics.',
+    aspectRatio: '21:9',
+  },
+];

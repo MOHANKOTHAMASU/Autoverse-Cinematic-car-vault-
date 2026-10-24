@@ -1,0 +1,462 @@
+/* AutoVerse — Premium Automotive Design System */
+:root {
+  --bg-primary: #07090d;
+  --bg-secondary: #0c1017;
+  --bg-tertiary: #141a24;
+  --bg-card: rgba(16, 22, 33, 0.75);
+  --bg-card-hover: rgba(24, 32, 48, 0.9);
+  --bg-glass: rgba(12, 16, 23, 0.85);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-bright: rgba(255, 255, 255, 0.3);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-highlight: #ffffff;
+
+  --accent-cyan: #00f0ff;
+  --accent-cyan-glow: rgba(0, 240, 255, 0.25);
+  --accent-cyan-dim: rgba(0, 240, 255, 0.12);
+  --accent-gold: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-blue: #3b82f6;
+
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+
+  --container-max: 1360px;
+  --header-height: 80px;
+
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 35px var(--accent-cyan-glow);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.section {
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 0.85rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background: var(--accent-cyan);
+}
+
+.section-title {
+  font-size: 2.75rem;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+.section-subtitle {
+  max-width: 680px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* High-End Automotive Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.875rem 1.85rem;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.3s var(--ease-cinematic);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
+  box-shadow: 0 0 25px var(--accent-cyan-glow);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.btn-cyan {
+  background: var(--accent-cyan);
+  color: #05070a;
+  font-weight: 700;
+  box-shadow: 0 0 20px var(--accent-cyan-glow);
+}
+
+.btn-cyan:hover {
+  background: #38bdf8;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border-subtle);
+}
+
+/* Tag / Spec Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.badge-cyan {
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.badge-gold {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--accent-gold);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.badge-verified {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Card Styling */
+.card-glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all 0.4s var(--ease-cinematic);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glass:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Vehicle Card Upgraded Motion */
+.vehicle-card {
+  transition: transform 0.45s var(--ease-cinematic), border-color 0.4s ease, box-shadow 0.45s ease;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(0, 240, 255, 0.15);
+}
+
+.vehicle-card:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+
+.vehicle-card-img {
+  transition: transform 0.7s var(--ease-cinematic), filter 0.5s ease;
+}
+
+.vehicle-card:hover .vehicle-card-img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+/* Scroll Animation Helper Classes */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic);
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Masked Text Reveal Animation */
+@keyframes textRevealMask {
+  0% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.masked-reveal {
+  display: inline-block;
+  animation: textRevealMask 1.2s var(--ease-cinematic) forwards;
+}
+
+.masked-reveal-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.masked-reveal-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.masked-reveal-delay-3 {
+  animation-delay: 0.45s;
+}
+
+/* Pulse and Slow Ambient Breathe Animation */
+@keyframes ambientBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.ambient-breathe {
+  animation: ambientBreathe 16s ease-in-out infinite;
+}
+
+/* Shimmer Highlight Effect */
+@keyframes shimmerLight {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 40%, var(--accent-cyan) 50%, rgba(255, 255, 255, 0.7) 60%, #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerLight 8s linear infinite;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .masked-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .ambient-breathe {
+    animation: none !important;
+    transform: none !important;
+  }
+  .text-shimmer {
+    animation: none !important;
+    background: none !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Form Select & Dropdown Option Styling in Dark Theme */
+select {
+  background-color: #0c1017 !important;
+  color: #f8fafc !important;
+  color-scheme: dark !important;
+}
+
+select option {
+  background-color: #0c1017 !important;
+  color: #ffffff !important;
+  padding: 8px 12px;
+}
+
+select option:checked,
+select option:hover {
+  background-color: #141a24 !important;
+  color: var(--accent-cyan) !important;
+}
+
