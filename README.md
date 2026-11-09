@@ -209,25 +209,32 @@ Compiled production files are output to `dist/`.
 
 ---
 
-## 🗄️ Supabase Database Setup
+## 🗄️ Supabase Cloud Database Integration
 
-1. Create a project at [supabase.com](https://supabase.com/).
-2. Navigate to **SQL Editor** $\rightarrow$ **New Query**.
-3. Execute the production migration file located at:
-   ```
-   supabase/migrations/20261024000000_autoverse_master_schema.sql
-   ```
-4. Copy your **Project URL** and **Anon Public Key** from **Project Settings $\rightarrow$ API** into your `.env` file or Vercel dashboard.
+AutoVerse is connected to the official Supabase cloud backend:
+- **Supabase Project Dashboard:** [https://supabase.com/dashboard/project/rrqvvmsomxvexpkpunfu](https://supabase.com/dashboard/project/rrqvvmsomxvexpkpunfu)
+- **Supabase API Gateway:** `https://rrqvvmsomxvexpkpunfu.supabase.co`
+- **SQL Migration:** [supabase/migrations/20261024000000_autoverse_master_schema.sql](file:///c:/Users/kmvsu/OneDrive/Desktop/car%20animation/supabase/migrations/20261024000000_autoverse_master_schema.sql)
+
+### Applying Database Schema
+1. Open the [Supabase SQL Editor](https://supabase.com/dashboard/project/rrqvvmsomxvexpkpunfu/sql/new).
+2. Paste the contents of `supabase/migrations/20261024000000_autoverse_master_schema.sql`.
+3. Click **Run** to execute tables, indexes, triggers, and Row-Level Security (RLS) policies.
 
 ---
 
-## 🚀 Vercel Deployment
+## 🚀 Vercel Production Deployment
 
-1. Import this repository on [vercel.com/new](https://vercel.com/new).
-2. Framework Preset: **Vite** (auto-detected).
-3. Build Command: `npm run build`
-4. Output Directory: `dist`
-5. Single-Page Application (SPA) routing is pre-configured via `vercel.json` and `public/_redirects`.
+AutoVerse is linked with continuous deployment:
+- **Vercel Project Overview:** [https://vercel.com/mohan-11d4/autoverse_28](https://vercel.com/mohan-11d4/autoverse_28)
+- **Vercel Environment Settings:** [https://vercel.com/mohan-11d4/autoverse_28/settings/environment-variables](https://vercel.com/mohan-11d4/autoverse_28/settings/environment-variables)
+- **Continuous Deployment Pipeline:** Every push to `main` automatically triggers an optimized production build on Vercel.
+
+### 1-Command Automated Ship & Sync
+To build, verify, commit, and push changes to GitHub and trigger Vercel deployment:
+```bash
+npm run ship "your commit message"
+```
 
 ---
 
