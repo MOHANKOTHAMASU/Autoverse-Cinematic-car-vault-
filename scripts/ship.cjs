@@ -1,6 +1,7 @@
 const { execSync } = require('child_process');
 
-const message = process.argv.slice(2).join(' ') || 'chore: update platform features and assets';
+const rawMessage = process.argv.slice(2).join(' ').trim();
+const cleanMessage = rawMessage.replace(/["\\]/g, '').trim() || 'chore: update platform features and assets';
 
 console.log('🚀 [AutoVerse Pipeline] Starting pre-flight verification & deployment push...\n');
 
@@ -14,8 +15,8 @@ try {
   
   const status = execSync('git status --porcelain').toString().trim();
   if (status) {
-    execSync(`git commit -m "${message.replace(/"/g, '\\"')}"`, { stdio: 'inherit' });
-    console.log(`✅ Committed changes: "${message}"\n`);
+    execSync(`git commit -m "${cleanMessage}"`, { stdio: 'inherit' });
+    console.log(`✅ Committed changes: "${cleanMessage}"\n`);
   } else {
     console.log('ℹ️  Working tree is already clean. No new changes to commit.\n');
   }
